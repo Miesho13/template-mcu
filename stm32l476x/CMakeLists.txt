@@ -19,11 +19,14 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -specs=nosys.specs -T${LIN
 file(GLOB_RECURSE SOURCE "src/*.c"
                          "./src/drivers/*.c"
                          "./src/device/*.s"
-                         "./src/device/*.c")
+                         "./src/device/*.c"
+                         "./lib/RTT/SEGGER_RTT.c"
+                         "./lib/RTT/SEGGER_RTT_printf.c")
 
 include_directories(src)
 include_directories(src/drivers)
 include_directories(src/device)
+include_directories(lib/RTT)
 
 add_executable(${PROJECT_NAME}.elf ${SOURCE})
 
